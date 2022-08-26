@@ -5,6 +5,9 @@ const todoList = document.querySelector('#todo-list');
 const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
+const serachInput = document.querySelector('#search-input');
+const eraseBtn = document.querySelector('#erase-button');
+const filterBtn = document.querySelector('#filter-select');
 
 let oldInputValue;
 
@@ -58,6 +61,48 @@ const updateTodo = (text) => {
     });
 }
 
+const getSearchedTodos = (search) => {
+    const todos = document.querySelectorAll('.todo');
+
+    todos.forEach((todo) => {
+        const todoTitle = todo.querySelector('h3').innerText.toLowerCase();
+        todo.style.display = 'flex';
+
+        console.log(todoTitle);
+
+        if (!todoTitle.includes(search)){
+            todo.style.display = "none";
+        }
+    });
+}
+
+
+const filterTodos = (filterValue) => {
+    const todos = document.querySelectorAll('.todo');
+
+    switch (filterValue) {
+        case 'all':
+            todos.forEach((todo) => {
+                todo.style.display = 'flex';
+            });
+            break;
+        
+        case 'done':
+            todos.forEach((todo) => {
+                todo.classList.contains('done') ? (todo.style.display = 'flex') : (todo.style.display = 'none');
+            });
+            break;
+        
+        case 'todo':
+            todos.forEach((todo) => {
+                !todo.classList.contains('done') ? (todo.style.display = 'flex') : (todo.style.display = 'none');
+            });
+            break;
+
+        default:
+            break;
+    }
+}
 
 // eventos
 todoForm.addEventListener("submit", (e) => {
@@ -113,4 +158,22 @@ editForm.addEventListener('submit', (e) => {
     }
 
     toggleForm();
+});
+
+serachInput.addEventListener('keyup', (e) => {
+    const search = e.target.value;
+
+    getSearchedTodos(search);
+});
+
+eraseBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    serachInput.value = "";
+    serachInput.dispatchEvent(new Event("keyup")); // forca evento
+});
+
+filterBtn.addEventListener('change', (e) => {
+    const filterValue = e.target.value;
+
+    filterTodos(filterValue);
 });
