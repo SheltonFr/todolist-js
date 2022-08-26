@@ -17,20 +17,20 @@
 <body>
     <main class="todo-container">
         <header>
-            <h1>To Do Avancado</h1>
+            <h1>To-Do List</h1>
         </header>
         <!--Formulario de adicao de tarefa  -->
         <form action="" id="todo-form">
             <p>Adicione a sua larefa:</p>
             <div class="form-control">
-                <input type="text" id="todo-put" placeholder="o que voce vai fazer?">
+                <input type="text" id="todo-input" placeholder="o que voce vai fazer?">
                 <button type="submit">
                     <i class="fa-thin fa-plus"></i>
                 </button>
             </div>
         </form>
         <!--Formulario de edicao de tarefa-->
-        <form action="" id="edit-form">
+        <form id="edit-form" class="hide">
             <p>Edite a sua tarefa:</p>
             <div class="form-control">
                 <input type="text" name="" id="edit-input">
@@ -41,8 +41,8 @@
             <button id="cancel-edit-btn">Cancelar</button>
         </form>
         <!-- div para ferramentas (pesquisas e filtro)-->
-        <div class="tool-bar">
-            <div class="search">
+        <div id="toolbar">
+            <div id="search">
                 <h4>Pesquisar:</h4>
                 <form>
                     <input type="text"  id="search-input" placeholder="Buscar">
@@ -52,7 +52,7 @@
                 </form>
             </div>
 
-            <div class="filter">
+            <div id="filter">
                 <h4>Filtrar:</h4>
                 <select id="filter-select">
                     <option value="all">Todos</option>
@@ -63,7 +63,7 @@
         </div>
 
         <!--Tarefas-->
-        <div class="todo-list">
+        <div id="todo-list">
             <div class="todo">
                 <h3>Estou fazendo alguma coisa...</h3>
                 <button class="finish-todo">
@@ -76,7 +76,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="todo">
+            <div class="todo done">
                 <h3>Estudar JavaScript</h3>
                 <button class="finish-todo">
                     <i class="fa-solid fa-check"></i>
