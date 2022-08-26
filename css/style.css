@@ -14,6 +14,7 @@
 html{
     height: 100vh
 }
+
 body {
     background-image: url(../img/background.jpg);
     background-position: center;
@@ -63,7 +64,7 @@ select {
 main {
     max-width: 450px;
     margin: 3rem auto ;
-    background-color: #FDFDFD;
+    background-color: #fdfdfd9e;
     padding: 1.5rem;
     border-radius: 15px;
 }
@@ -160,7 +161,7 @@ main header {
  }
 
  .done {
-    background-color: #395169;
+    background-color: #395169bc;
  }
 
  .done h3 {
