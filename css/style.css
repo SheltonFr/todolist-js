@@ -58,11 +58,13 @@ select {
 
 .hide {
     display: none;
+    
 }
 
 /* To Do header */
 main {
     max-width: 450px;
+    min-width: 340px;
     margin: 3rem auto ;
     background-color: #fdfdfd9e;
     padding: 1.5rem;
@@ -168,4 +170,12 @@ main header {
     color: #fff;
     text-decoration: line-through;
     font-style: italic;
+ }
+
+ @media screen and (max-width: 400px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
  }
